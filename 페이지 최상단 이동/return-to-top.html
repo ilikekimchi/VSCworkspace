@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5ea47adb73.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        #return-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: black;
+            color: #fff;
+            box-shadow: 1px 2px 2px 0px rgb(0 0 0 / 20%);
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 21px;
+            text-align: center;
+            line-height: 37px;
+            transition: .5s;
+        }
+
+        #return-to-top:hover {
+            background-color: #000;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            let height = document.querySelector('#header-wrap').scrollHeight;
+            let getYY = window.scrollY;
+            let btn = document.getElementById('return-to-top');
+
+            if (height < getYY) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        })
+
+
+    </script>
+</head>
+
+<body>
+    <a id="return-to-top" href="#">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
+</body>
+
+</html>

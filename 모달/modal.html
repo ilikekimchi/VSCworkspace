@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="modal.css">
+    <title>MODAL</title>
+    <style>
+        @charset "UTF-8";
+
+        button {
+            all: unset;
+            /* 기본 스타일 제거 */
+            background-color: steelblue;
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px 20px;
+            cursor: pointer;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* 남는 여백을 다먹고, 스크롤 내려도 위치 고정 */
+            width: 100%;
+            height: 100%;
+            /* 전체 영역을 먹는다 일단 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            /* overlay 불투명도 */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* 안주면 overlay와 content가 따로 논다. content가 밀려남 */
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px 100px;
+            text-align: center;
+            position: relative;
+            width: 10%;
+            /* 너비: 전체의 10% */
+            top: 0px;
+            /* 왜 넣지 */
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="open">Open Model</button>
+
+    <div class="modal hidden">
+        <!-- modal 감싸는 영역 -->
+        <div class="modal-overlay"></div>
+        <!-- modal의 overlay -->
+        <div class="modal-content">
+            <!-- modal의 content -->
+            <h1>n</h1>
+            <button class="close-btn">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.getElementById("open");
+        //  여는 버튼
+        const modal = document.querySelector('.modal');
+        //  전체를 감싸는 영역
+        const overlay = modal.querySelector('.modal-overlay');
+        //  오버레이
+        const closeBtn = modal.querySelector('.close-btn');
+        // content 내 버튼
+       
+
+        const openModal = () => {
+            modal.classList.remove('hidden');
+        }
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+        }
+
+        overlay.addEventListener('click', closeModal)
+        // 오버레이 영역을 클릭시 모달을 clsoe
+        closeBtn.addEventListener('click', closeModal)
+        // x 버튼눌렀을 시 닫히도록
+        openBtn.addEventListener('click', openModal);
+        // openBtn 을 클릭시 모달 오픈
+
+    </script>
+</body>
+
+</html>
